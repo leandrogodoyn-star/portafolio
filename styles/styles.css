@@ -340,6 +340,21 @@ footer {
     color: white;
   }
 }
+.hero-buttons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
 
+.btn-outline {
+  background: transparent;
+  border: 2px solid white;
+  color: white;
+}
 
-
+.btn-outline:hover {
+  background: white;
+  color: black;
+}
