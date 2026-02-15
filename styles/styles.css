@@ -55,7 +55,7 @@ nav ul li a:hover {
 .hero {
   height: 100vh;
   position: relative;
-  background: url(../image/fondo.webp) center/cover no-repeat;
+  background: url(../image/fondo.jpg) center/cover no-repeat;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -340,5 +340,6 @@ footer {
     color: white;
   }
 }
+
 
 
