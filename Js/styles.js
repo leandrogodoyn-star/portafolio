@@ -83,14 +83,7 @@ window.addEventListener("resize", () => {
   canvas.height = window.innerHeight;
 });
 
-// AURA FOLLOW MOUSE
 
-const aura = document.querySelector(".aura");
-
-document.addEventListener("mousemove", (e) => {
-  aura.style.left = e.clientX + "px";
-  aura.style.top = e.clientY + "px";
-});
 
 // Aura intensifies on hover buttons and cards
 
