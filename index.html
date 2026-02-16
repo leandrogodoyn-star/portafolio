@@ -2,142 +2,248 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <title>Leandro Godoy | Portafolio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Portafolio de Leandro Godoy - Desarrollo web creativo con estética moderna y animaciones dinámicas."
-    />
+    <title>Leandro Godoy - Portafolio</title>
 
-    <link rel="stylesheet" href="styles/styles.css" />
+    <!-- Fuentes elegantes y modernas -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="css/whatsapp-button.css" />
-    <link rel="stylesheet" href="css/cursor-trail.css" />
+    <link rel="stylesheet" href="styles/style.css" />
   </head>
   <body>
-    <header>
-      <header>
-        <nav>
-          <h1 class="logo">Leandro<span>Godoy</span></h1>
+    <!-- FORMA GEOMÉTRICA 3D ABSTRACTA -->
+    <div class="shape-container">
+      <div class="shape-wrapper">
+        <div class="shape-glow"></div>
+        <div class="geometric-shape">
+          <!-- Caras del octaedro -->
+          <div class="face"></div>
+          <div class="face"></div>
+          <div class="face"></div>
+          <div class="face"></div>
+          <div class="face"></div>
+          <div class="face"></div>
+          <div class="face"></div>
+          <div class="face"></div>
 
-          <div class="menu-toggle" id="menu-toggle">
-            <span></span>
-            <span></span>
-            <span></span>
+          <!-- Wireframe decorativo -->
+          <div class="wireframe">
+            <div class="wireframe-line"></div>
+            <div class="wireframe-line"></div>
+            <div class="wireframe-line"></div>
+            <div class="wireframe-line"></div>
           </div>
 
-          <ul id="nav-links">
-            <li><a href="#about">Sobre mí</a></li>
-            <li><a href="#skills">Habilidades</a></li>
-            <li><a href="#projects">Proyectos</a></li>
-            <li><a href="#contact">Contacto</a></li>
-          </ul>
-        </nav>
-      </header>
+          <!-- Partículas orbitando -->
+          <div class="particle"></div>
+          <div class="particle"></div>
+          <div class="particle"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cursor personalizado -->
+    <div class="custom-cursor"></div>
+
+    <!-- HEADER -->
+    <header>
+      <nav>
+        <div class="logo">Leandro Godoy</div>
+        <ul class="nav-links">
+          <li><a href="#work">Work</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
     </header>
 
+    <!-- HERO -->
     <section class="hero">
-      !__ <canvas id="particles"></canvas>__!
       <div class="hero-content">
-        <h2 id="typewriter"></h2>
-        <p>
-          Desarrollo sitios web modernos, rápidos y optimizados para potenciar
-          tu negocio.
+        <div class="hero-label">Developer • Editor • Assistant</div>
+        <h1>Transformo ideas<br />en experiencias<br />digitales</h1>
+        <p class="hero-description">
+          Desarrollador web, editor de video y asistente virtual especializado
+          en crear soluciones digitales que impulsan negocios.
         </p>
-        <div class="hero-buttons">
-          <a href="#projects" class="btn">Ver Proyectos</a>
-          <a href="#contact" class="btn btn-outline">Solicitar Presupuesto</a>
+      </div>
+    </section>
+
+    <!-- PROYECTOS -->
+    <section id="work" class="projects">
+      <div class="section-header">
+        <div class="section-title">Featured Work</div>
+        <h2 class="section-heading">Proyectos Seleccionados</h2>
+      </div>
+
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-image">
+            <div class="project-placeholder">🌐</div>
+          </div>
+          <div class="project-info">
+            <div class="project-tags">
+              <span class="project-tag">Web Design</span>
+              <span class="project-tag">Development</span>
+            </div>
+            <h3 class="project-title">E-Commerce Platform</h3>
+            <p class="project-description">
+              Diseño y desarrollo de plataforma completa de comercio electrónico
+              con enfoque en experiencia de usuario.
+            </p>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-image">
+            <div class="project-placeholder">🎬</div>
+          </div>
+          <div class="project-info">
+            <div class="project-tags">
+              <span class="project-tag">Video</span>
+              <span class="project-tag">Branding</span>
+            </div>
+            <h3 class="project-title">Brand Campaign</h3>
+            <p class="project-description">
+              Producción y edición de contenido audiovisual para campaña de
+              marca en redes sociales.
+            </p>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-image">
+            <div class="project-placeholder">📱</div>
+          </div>
+          <div class="project-info">
+            <div class="project-tags">
+              <span class="project-tag">UI/UX</span>
+              <span class="project-tag">Frontend</span>
+            </div>
+            <h3 class="project-title">Mobile App Design</h3>
+            <p class="project-description">
+              Interfaz de usuario moderna para aplicación móvil con animaciones
+              interactivas.
+            </p>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-image">
+            <div class="project-placeholder">💼</div>
+          </div>
+          <div class="project-info">
+            <div class="project-tags">
+              <span class="project-tag">Strategy</span>
+              <span class="project-tag">Management</span>
+            </div>
+            <h3 class="project-title">Digital Strategy</h3>
+            <p class="project-description">
+              Gestión integral de presencia digital y asistencia virtual para
+              startup tecnológica.
+            </p>
+          </div>
         </div>
       </div>
     </section>
-    <section class="services" id="services">
-      <h2>Servicios</h2>
 
-      <div class="services-container">
-        <div class="service-card">
-          <h3>Desarrollo Web</h3>
+    <!-- SERVICIOS -->
+    <section id="services" class="services">
+      <div class="section-header">
+        <div class="section-title">What I Do</div>
+        <h2 class="section-heading">Servicios</h2>
+      </div>
+
+      <div class="services-list">
+        <div class="service-item">
+          <div class="service-number">01</div>
+          <div class="service-content">
+            <h3>Desarrollo Web</h3>
+            <p>
+              Sitios web modernos, rápidos y responsive. HTML, CSS, JavaScript.
+              Desde landing pages hasta aplicaciones completas.
+            </p>
+          </div>
+          <div class="service-icon">💻</div>
+        </div>
+
+        <div class="service-item">
+          <div class="service-number">02</div>
+          <div class="service-content">
+            <h3>Edición de Video</h3>
+            <p>
+              Producción y edición profesional para redes sociales, publicidad y
+              contenido de marca. Storytelling visual impactante.
+            </p>
+          </div>
+          <div class="service-icon">🎬</div>
+        </div>
+
+        <div class="service-item">
+          <div class="service-number">03</div>
+          <div class="service-content">
+            <h3>Asistencia Virtual</h3>
+            <p>
+              Gestión de redes sociales, organización de tareas, soporte
+              administrativo. Optimiza tu tiempo y productividad.
+            </p>
+          </div>
+          <div class="service-icon">📋</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contact" class="contact">
+      <div class="contact-content">
+        <div class="contact-info">
+          <h2>Let's work<br />together</h2>
           <p>
-            Creación de sitios web modernos, rápidos y totalmente responsive
-            adaptados a tu negocio.
+            ¿Tienes un proyecto en mente? Me encantaría escuchar tu idea y ver
+            cómo podemos trabajar juntos para hacerla realidad.
           </p>
         </div>
 
-        <div class="service-card">
-          <h3>Landing Pages</h3>
-          <p>
-            Diseño de páginas enfocadas en convertir visitantes en clientes.
-          </p>
+        <div class="contact-links">
+          <a href="mailto:leandrogodoy.n@gmail.com" class="contact-link">
+            <div class="contact-link-icon">📧</div>
+            <div class="contact-link-text">
+              <div class="contact-link-label">Email</div>
+              <div class="contact-link-value">Leandrogodoy.n@gmail.com</div>
+            </div>
+          </a>
+
+          <a href="https://wa.me/543329311017" class="contact-link">
+            <div class="contact-link-icon">💬</div>
+            <div class="contact-link-text">
+              <div class="contact-link-label">WhatsApp</div>
+              <div class="contact-link-value">+54(3329)311017</div>
+            </div>
+          </a>
+
+          <a href="https://linkedin.com" class="contact-link">
+            <div class="contact-link-icon">💼</div>
+            <div class="contact-link-text">
+              <div class="contact-link-label">LinkedIn</div>
+              <div class="contact-link-value">linkedin.com/in/leandrogodoy</div>
+            </div>
+          </a>
         </div>
-
-        <div class="service-card">
-          <h3>Optimización y Mejora</h3>
-          <p>
-            Mejoro y modernizo sitios existentes para aumentar su rendimiento y
-            profesionalismo.
-          </p>
-        </div>
       </div>
     </section>
 
-    <section id="about" class="about hidden">
-      <h2>Sobre Mí</h2>
-      <p>
-        Soy un desarrollador apasionado por crear proyectos con estética única.
-        Me enfoco en diseño moderno, animaciones atractivas y código limpio.
-      </p>
-    </section>
-
-    <section id="skills" class="skills hidden">
-      <h2>Habilidades</h2>
-      <div class="skill-box">
-        <div class="skill">HTML</div>
-        <div class="skill">CSS</div>
-        <div class="skill">JavaScript</div>
-        <div class="skill">Edición de Video</div>
-        <div class="skill">Diseño Digital</div>
-      </div>
-    </section>
-
-    <section id="projects" class="projects hidden">
-      <h2>Proyectos</h2>
-      <div class="project-container">
-        <div class="project-card">Proyecto 1</div>
-        <div class="project-card">Proyecto 2</div>
-        <div class="project-card">Proyecto 3</div>
-      </div>
-    </section>
-
-    <section id="contact" class="contact hidden">
-      <h2>Contacto</h2>
-      <p>Email: tuemail@gmail.com</p>
-    </section>
-
+    <!-- FOOTER -->
     <footer>
-      <p>© 2026 Leandro Godoy</p>
+      <div class="container">
+        <p>&copy; 2026 Leandro Godoy</p>
+        <p>Desarrollado con atención al detalle</p>
+      </div>
     </footer>
 
-    <!-- Botón de WhatsApp Flotante -->
-    <a
-      href="https://wa.me/543329311017?text=Hola%20Leandro,%20estoy%20interesado%20en%20tus%20servicios"
-      class="whatsapp-float"
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="Contactar por WhatsApp"
-    >
-      <svg viewBox="0 0 32 32" class="whatsapp-icon">
-        <path
-          fill="currentColor"
-          d="M16 0c-8.837 0-16 7.163-16 16 0 2.825 0.737 5.607 2.137 8.048l-2.137 7.952 7.933-2.127c2.42 1.37 5.173 2.127 8.067 2.127 8.837 0 16-7.163 16-16s-7.163-16-16-16zM16 29.467c-2.482 0-4.908-0.646-7.07-1.87l-0.507-0.292-4.713 1.262 1.262-4.669-0.292-0.508c-1.207-2.100-1.847-4.507-1.847-6.924 0-7.435 6.052-13.488 13.488-13.488s13.488 6.052 13.488 13.488c0 7.435-6.052 13.488-13.488 13.488zM21.863 18.481c-0.205-0.103-1.216-0.6-1.405-0.668s-0.326-0.103-0.463 0.103c-0.137 0.205-0.532 0.668-0.651 0.805s-0.24 0.154-0.445 0.051c-0.205-0.103-0.867-0.32-1.651-1.020-0.608-0.546-1.02-1.217-1.139-1.422s-0.013-0.316 0.090-0.418c0.092-0.091 0.205-0.24 0.308-0.36s0.137-0.205 0.205-0.342c0.068-0.137 0.034-0.257-0.017-0.36s-0.463-1.117-0.634-1.528c-0.167-0.399-0.337-0.345-0.463-0.351-0.12-0.006-0.257-0.007-0.394-0.007s-0.36 0.051-0.548 0.257c-0.188 0.205-0.72 0.703-0.72 1.716s0.737 1.989 0.84 2.125c0.103 0.137 1.457 2.228 3.528 3.123 0.493 0.213 0.877 0.341 1.176 0.436 0.495 0.158 0.945 0.135 1.301 0.082 0.397-0.059 1.216-0.497 1.388-0.977s0.172-0.891 0.120-0.977c-0.051-0.085-0.188-0.137-0.394-0.24z"
-        ></path>
-      </svg>
-      <span class="whatsapp-tooltip">¿Necesitas ayuda?</span>
-    </a>
-    <!--CURSOR EFECTO-->
-    <script src="js/cursor-trail.js"></script>
-
-    <script src="Js/styles.js"></script>
+    <script src="Js/index.js"></script>
   </body>
 </html>
