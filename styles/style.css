@@ -1,5 +1,5 @@
 /* ==========================================
-           VARIABLES
+           VARIABLES - LIGHT MODE
            ========================================== */
 :root {
   --color-bg: #fafafa;
@@ -8,6 +8,10 @@
   --color-accent: #0066ff;
   --color-border: #e5e5e5;
   --color-hover: #f5f5f5;
+  --color-card: #ffffff;
+  --color-services-bg: #ffffff;
+  --color-card: #ffffff;
+  --color-services-bg: #ffffff;
 
   --font-display: "Playfair Display", serif;
   --font-body: "Manrope", sans-serif;
@@ -20,6 +24,80 @@
 
   --transition-smooth: cubic-bezier(0.4, 0, 0.2, 1);
   --transition-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* ==========================================
+           DARK MODE - Variables
+           ========================================== */
+body.dark-mode {
+  --color-bg: #0f0f0f;
+  --color-text: #f0f0f0;
+  --color-text-secondary: #888888;
+  --color-accent: #4d9fff;
+  --color-border: #2a2a2a;
+  --color-hover: #1a1a1a;
+  --color-card: #161616;
+  --color-services-bg: #111111;
+}
+
+/* ==========================================
+           DARK MODE
+           ========================================== */
+body.dark-mode {
+  --color-bg: #0f0f0f;
+  --color-text: #f0f0f0;
+  --color-text-secondary: #888888;
+  --color-accent: #4d9fff;
+  --color-border: #2a2a2a;
+  --color-hover: #1a1a1a;
+  --color-card: #161616;
+  --color-services-bg: #111111;
+}
+
+body {
+  transition:
+    background 0.4s ease,
+    color 0.4s ease;
+}
+
+/* ==========================================
+           BOTÓN DARK MODE
+           ========================================== */
+.dark-toggle {
+  background: none;
+  border: 1px solid var(--color-border);
+  border-radius: 50px;
+  width: 48px;
+  height: 26px;
+  position: relative;
+  cursor: none !important;
+  transition: border-color 0.3s ease;
+  flex-shrink: 0;
+}
+
+.dark-toggle:hover {
+  border-color: var(--color-text);
+}
+
+.dark-toggle-thumb {
+  position: absolute;
+  top: 50%;
+  left: 4px;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--color-text);
+  transition: left 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 9px;
+  line-height: 1;
+}
+
+body.dark-mode .dark-toggle-thumb {
+  left: 26px;
 }
 
 * {
@@ -41,6 +119,230 @@ body {
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition:
+    background 0.4s ease,
+    color 0.4s ease;
+}
+
+/* ==========================================
+           BOTÓN DARK MODE
+           ========================================== */
+.dark-toggle {
+  background: none;
+  border: 1px solid var(--color-border);
+  border-radius: 50px;
+  width: 48px;
+  height: 26px;
+  position: relative;
+  cursor: none !important;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.dark-toggle:hover {
+  border-color: var(--color-text);
+}
+
+.dark-toggle-thumb {
+  position: absolute;
+  top: 50%;
+  left: 4px;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--color-text);
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 9px;
+}
+
+body.dark-mode .dark-toggle-thumb {
+  left: calc(100% - 20px);
+}
+
+/* ==========================================
+           PANTALLA DE CARGA
+           ========================================== */
+.loader {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: #0f0f0f;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition:
+    opacity 0.9s ease,
+    visibility 0.9s ease;
+}
+
+.loader.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  display: none;
+}
+
+.loader-line {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.2) 30%,
+    white 50%,
+    rgba(255, 255, 255, 0.2) 70%,
+    transparent 100%
+  );
+  animation: scanLine 2s ease-in-out infinite;
+}
+
+@keyframes scanLine {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+.loader-welcome {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  letter-spacing: 0.6em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.35);
+  margin-bottom: 1.5rem;
+  opacity: 0;
+  animation: fadeSlideUp 0.8s ease 0.3s forwards;
+}
+
+.loader-name {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 10vw, 7rem);
+  font-weight: 600;
+  color: white;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  overflow: hidden;
+}
+
+.loader-name-inner {
+  display: block;
+  transform: translateY(110%);
+  animation: slideUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.5s forwards;
+}
+
+@keyframes slideUp {
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.loader-progress-wrap {
+  position: absolute;
+  bottom: 3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.loader-progress-bar {
+  width: 180px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+}
+
+.loader-progress-fill {
+  height: 100%;
+  width: 0%;
+  background: white;
+  animation: fillBar 2.5s cubic-bezier(0.4, 0, 0.2, 1) 0.2s forwards;
+}
+
+@keyframes fillBar {
+  0% {
+    width: 0%;
+  }
+  50% {
+    width: 70%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+.loader-progress-text {
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  color: rgba(255, 255, 255, 0.25);
+  font-family: var(--font-body);
+}
+
+.loader-dot {
+  display: inline-block;
+  animation: blink 1s ease infinite;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.loader-corner {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border-color: rgba(255, 255, 255, 0.15);
+  border-style: solid;
+}
+
+.loader-corner-tl {
+  top: 2rem;
+  left: 2rem;
+  border-width: 1px 0 0 1px;
+}
+.loader-corner-tr {
+  top: 2rem;
+  right: 2rem;
+  border-width: 1px 1px 0 0;
+}
+.loader-corner-bl {
+  bottom: 2rem;
+  left: 2rem;
+  border-width: 0 0 1px 1px;
+}
+.loader-corner-br {
+  bottom: 2rem;
+  right: 2rem;
+  border-width: 0 1px 1px 0;
 }
 
 ::selection {
@@ -71,7 +373,6 @@ body {
   transition: transform 0.05s ease-out;
 }
 
-/* Octaedro - Forma geométrica abstracta */
 .geometric-shape {
   width: 400px;
   height: 400px;
@@ -95,16 +396,10 @@ body {
   }
 }
 
-/* Caras del octaedro */
 .face {
   position: absolute;
   width: 280px;
   height: 280px;
-  background: linear-gradient(
-    135deg,
-    rgba(220, 220, 220, 0.9) 0%,
-    rgba(180, 180, 180, 0.7) 100%
-  );
   border: 1px solid rgba(255, 255, 255, 0.3);
   backdrop-filter: blur(10px);
   clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
@@ -114,80 +409,71 @@ body {
     inset 0 0 40px rgba(255, 255, 255, 0.2);
 }
 
-/* Gradientes diferentes para cada cara */
 .face:nth-child(1) {
   background: linear-gradient(
     135deg,
-    rgba(100, 150, 230, 0.3) 0%,
-    rgba(80, 120, 200, 0.2) 100%
+    rgba(100, 150, 230, 0.3),
+    rgba(80, 120, 200, 0.2)
   );
   transform: rotateY(0deg) translateZ(140px);
 }
-
 .face:nth-child(2) {
   background: linear-gradient(
     135deg,
-    rgba(230, 100, 150, 0.3) 0%,
-    rgba(200, 80, 120, 0.2) 100%
+    rgba(230, 100, 150, 0.3),
+    rgba(200, 80, 120, 0.2)
   );
   transform: rotateY(90deg) translateZ(140px);
 }
-
 .face:nth-child(3) {
   background: linear-gradient(
     135deg,
-    rgba(150, 230, 100, 0.3) 0%,
-    rgba(120, 200, 80, 0.2) 100%
+    rgba(150, 230, 100, 0.3),
+    rgba(120, 200, 80, 0.2)
   );
   transform: rotateY(180deg) translateZ(140px);
 }
-
 .face:nth-child(4) {
   background: linear-gradient(
     135deg,
-    rgba(230, 200, 100, 0.3) 0%,
-    rgba(200, 170, 80, 0.2) 100%
+    rgba(230, 200, 100, 0.3),
+    rgba(200, 170, 80, 0.2)
   );
   transform: rotateY(270deg) translateZ(140px);
 }
-
 .face:nth-child(5) {
   background: linear-gradient(
     135deg,
-    rgba(200, 100, 230, 0.3) 0%,
-    rgba(170, 80, 200, 0.2) 100%
+    rgba(200, 100, 230, 0.3),
+    rgba(170, 80, 200, 0.2)
   );
   transform: rotateX(90deg) translateZ(140px);
 }
-
 .face:nth-child(6) {
   background: linear-gradient(
     135deg,
-    rgba(100, 230, 200, 0.3) 0%,
-    rgba(80, 200, 170, 0.2) 100%
+    rgba(100, 230, 200, 0.3),
+    rgba(80, 200, 170, 0.2)
   );
   transform: rotateX(-90deg) translateZ(140px);
 }
-
 .face:nth-child(7) {
   background: linear-gradient(
     135deg,
-    rgba(255, 150, 100, 0.3) 0%,
-    rgba(220, 120, 80, 0.2) 100%
+    rgba(255, 150, 100, 0.3),
+    rgba(220, 120, 80, 0.2)
   );
   transform: rotateY(45deg) rotateX(45deg) translateZ(140px);
 }
-
 .face:nth-child(8) {
   background: linear-gradient(
     135deg,
-    rgba(150, 100, 255, 0.3) 0%,
-    rgba(120, 80, 220, 0.2) 100%
+    rgba(150, 100, 255, 0.3),
+    rgba(120, 80, 220, 0.2)
   );
   transform: rotateY(-45deg) rotateX(-45deg) translateZ(140px);
 }
 
-/* Líneas de borde para efecto wireframe */
 .wireframe {
   position: absolute;
   width: 100%;
@@ -199,9 +485,9 @@ body {
   position: absolute;
   background: linear-gradient(
     90deg,
-    rgba(100, 150, 255, 0.6) 0%,
-    rgba(150, 100, 255, 0.4) 50%,
-    rgba(100, 150, 255, 0.6) 100%
+    rgba(100, 150, 255, 0.6),
+    rgba(150, 100, 255, 0.4),
+    rgba(100, 150, 255, 0.6)
   );
   box-shadow: 0 0 10px rgba(100, 150, 255, 0.5);
 }
@@ -213,7 +499,6 @@ body {
   left: 50%;
   transform: translateX(-50%) rotateZ(45deg);
 }
-
 .wireframe-line:nth-child(2) {
   width: 280px;
   height: 2px;
@@ -221,7 +506,6 @@ body {
   left: 50%;
   transform: translateX(-50%) rotateZ(45deg);
 }
-
 .wireframe-line:nth-child(3) {
   width: 2px;
   height: 280px;
@@ -229,7 +513,6 @@ body {
   top: 50%;
   transform: translateY(-50%) rotateZ(45deg);
 }
-
 .wireframe-line:nth-child(4) {
   width: 2px;
   height: 280px;
@@ -238,7 +521,6 @@ body {
   transform: translateY(-50%) rotateZ(45deg);
 }
 
-/* Partículas orbitando */
 .particle {
   position: absolute;
   width: 8px;
@@ -246,8 +528,8 @@ body {
   border-radius: 50%;
   background: radial-gradient(
     circle,
-    rgba(100, 150, 255, 0.8) 0%,
-    rgba(100, 150, 255, 0.3) 100%
+    rgba(100, 150, 255, 0.8),
+    rgba(100, 150, 255, 0.3)
   );
   box-shadow: 0 0 15px rgba(100, 150, 255, 0.6);
   animation: orbit 20s linear infinite;
@@ -257,12 +539,10 @@ body {
   animation-delay: 0s;
   animation-duration: 15s;
 }
-
 .particle:nth-child(2) {
   animation-delay: -5s;
   animation-duration: 18s;
 }
-
 .particle:nth-child(3) {
   animation-delay: -10s;
   animation-duration: 22s;
@@ -277,7 +557,6 @@ body {
   }
 }
 
-/* Resplandor de fondo */
 .shape-glow {
   position: absolute;
   top: 50%;
@@ -288,7 +567,7 @@ body {
   border-radius: 50%;
   background: radial-gradient(
     circle,
-    rgba(100, 150, 255, 0.15) 0%,
+    rgba(100, 150, 255, 0.15),
     rgba(150, 100, 255, 0.1) 30%,
     transparent 70%
   );
@@ -324,7 +603,7 @@ body {
   position: fixed;
   pointer-events: none;
   z-index: 9999;
-  transition: all 0.15s ease;
+  transition: all 0.08s ease;
   mix-blend-mode: difference;
 }
 
@@ -353,6 +632,14 @@ header {
   transition: all 0.5s var(--transition-smooth);
 }
 
+body.dark-mode header {
+  background: rgba(15, 15, 15, 0.85);
+}
+
+body.dark-mode header {
+  background: rgba(15, 15, 15, 0.85);
+}
+
 header.scrolled {
   border-bottom-color: var(--color-border);
 }
@@ -378,6 +665,7 @@ nav {
   display: flex;
   gap: 3rem;
   list-style: none;
+  align-items: center;
 }
 
 .nav-links a {
@@ -474,6 +762,7 @@ nav {
   position: relative;
   z-index: 2;
   background: var(--color-bg);
+  transition: background 0.4s ease;
 }
 
 .section-header {
@@ -523,7 +812,7 @@ nav {
   position: relative;
   overflow: hidden;
   border-radius: 8px;
-  background: white;
+  background: var(--color-card);
   transition: all 0.6s var(--transition-smooth);
 }
 
@@ -534,6 +823,10 @@ nav {
   position: relative;
   overflow: hidden;
   transition: transform 0.6s var(--transition-smooth);
+}
+
+body.dark-mode .project-image {
+  background: linear-gradient(135deg, #1e1e1e 0%, #2a2a2a 100%);
 }
 
 .project-image::before {
@@ -548,7 +841,6 @@ nav {
 .project-card:hover .project-image {
   transform: scale(1.05);
 }
-
 .project-card:hover .project-image::before {
   opacity: 0.1;
 }
@@ -616,16 +908,15 @@ nav {
            ========================================== */
 .services {
   padding: var(--spacing-xl) 4rem;
-  background: white;
+  background: var(--color-services-bg);
   position: relative;
   z-index: 2;
+  transition: background 0.4s ease;
 }
 
 .services-list {
   max-width: 1400px;
   margin: 0 auto;
-  display: grid;
-  gap: 0;
 }
 
 .service-item {
@@ -659,7 +950,6 @@ nav {
 .service-item:hover::before {
   transform: scaleX(1);
 }
-
 .service-item:hover {
   padding-left: 2rem;
 }
@@ -706,6 +996,7 @@ nav {
   position: relative;
   z-index: 2;
   background: var(--color-bg);
+  transition: background 0.4s ease;
 }
 
 .contact-content {
@@ -758,7 +1049,6 @@ nav {
 .contact-link-icon {
   font-size: 2rem;
 }
-
 .contact-link-text {
   flex: 1;
 }
@@ -785,6 +1075,7 @@ footer {
   position: relative;
   z-index: 2;
   background: var(--color-bg);
+  transition: background 0.4s ease;
 }
 
 footer .container {
@@ -808,7 +1099,6 @@ footer p {
     width: 500px;
     height: 500px;
   }
-
   .geometric-shape {
     width: 300px;
     height: 300px;
@@ -840,16 +1130,13 @@ footer p {
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
-
   .service-icon {
     text-align: left;
   }
-
   .contact-content {
     grid-template-columns: 1fr;
     gap: 4rem;
   }
-
   .nav-links {
     gap: 1.5rem;
   }
@@ -860,20 +1147,16 @@ footer p {
     width: 300px;
     height: 300px;
   }
-
   .geometric-shape {
     width: 200px;
     height: 200px;
   }
-
   .custom-cursor {
     display: none;
   }
-
   body {
     cursor: auto;
   }
-
   a,
   button {
     cursor: pointer !important;

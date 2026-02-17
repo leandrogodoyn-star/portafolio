@@ -1,6 +1,42 @@
 // ==========================================
+// PANTALLA DE CARGA
+// ==========================================
+const loader = document.getElementById("loader");
+
+document.body.style.overflow = "hidden";
+
+setTimeout(function () {
+  loader.style.opacity = "0";
+  loader.style.transition = "opacity 0.8s ease";
+
+  setTimeout(function () {
+    loader.style.display = "none";
+    document.body.style.overflow = "";
+  }, 800);
+}, 2500);
+
+// ==========================================
+// DARK MODE
+// ==========================================
+const darkToggle = document.getElementById("darkToggle");
+const thumb = darkToggle.querySelector(".dark-toggle-thumb");
+
+// Recuperar preferencia guardada
+if (localStorage.getItem("darkMode") === "true") {
+  document.body.classList.add("dark-mode");
+  thumb.textContent = "🌙";
+}
+
+darkToggle.addEventListener("click", () => {
+  document.body.classList.toggle("dark-mode");
+  const isDark = document.body.classList.contains("dark-mode");
+  thumb.textContent = isDark ? "🌙" : "☀️";
+  localStorage.setItem("darkMode", isDark);
+});
+
+// ==========================================
 // EFECTO 3D PARALLAX DE LA FORMA GEOMÉTRICA
-// ========================================== */
+// ==========================================
 const shapeWrapper = document.querySelector(".shape-wrapper");
 const shapeContainer = document.querySelector(".shape-container");
 const geometricShape = document.querySelector(".geometric-shape");
@@ -22,24 +58,22 @@ document.addEventListener("mousemove", (e) => {
 });
 
 function updateShapePosition() {
-  // Parallax scroll
   const parallaxY = scrollY * 0.3;
 
-  // Efecto 3D en los 3 ejes
-  const rotateX = mouseY * 40; // Rotación en eje X
-  const rotateY = mouseX * -40; // Rotación en eje Y
-  const rotateZ = (mouseX + mouseY) * 20; // Rotación en eje Z
+  const rotateX = mouseY * 40;
+  const rotateY = mouseX * -40;
+  const rotateZ = (mouseX + mouseY) * 20;
   const translateX = mouseX * 60;
   const translateY = mouseY * 60;
 
   shapeWrapper.style.transform = `
-                translate(-50%, -50%)
-                translateX(${translateX}px)
-                translateY(${translateY}px)
-                rotateX(${rotateX}deg)
-                rotateY(${rotateY}deg)
-                rotateZ(${rotateZ}deg)
-            `;
+    translate(-50%, -50%)
+    translateX(${translateX}px)
+    translateY(${translateY}px)
+    rotateX(${rotateX}deg)
+    rotateY(${rotateY}deg)
+    rotateZ(${rotateZ}deg)
+  `;
 
   shapeContainer.style.transform = `translateY(${parallaxY}px)`;
 }
@@ -48,29 +82,11 @@ function updateShapePosition() {
 // CURSOR PERSONALIZADO
 // ==========================================
 const cursor = document.querySelector(".custom-cursor");
-let cursorMouseX = 0;
-let cursorMouseY = 0;
-let cursorX = 0;
-let cursorY = 0;
 
 document.addEventListener("mousemove", (e) => {
-  cursorMouseX = e.clientX;
-  cursorMouseY = e.clientY;
+  cursor.style.left = e.clientX + "px";
+  cursor.style.top = e.clientY + "px";
 });
-
-function animateCursor() {
-  const dx = cursorMouseX - cursorX;
-  const dy = cursorMouseY - cursorY;
-
-  cursorX += dx * 1;
-  cursorY += dy * 1;
-
-  cursor.style.left = cursorX + "px";
-  cursor.style.top = cursorY + "px";
-
-  requestAnimationFrame(animateCursor);
-}
-animateCursor();
 
 // Efecto hover
 const hoverElements = document.querySelectorAll("a, button, .project-card");

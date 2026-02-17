@@ -4,8 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Leandro Godoy - Portafolio</title>
-
-    <!-- Fuentes elegantes y modernas -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -15,12 +13,32 @@
     <link rel="stylesheet" href="styles/style.css" />
   </head>
   <body>
+    <!-- PANTALLA DE CARGA -->
+    <div class="loader" id="loader">
+      <div class="loader-line"></div>
+      <div class="loader-corner loader-corner-tl"></div>
+      <div class="loader-corner loader-corner-tr"></div>
+      <div class="loader-corner loader-corner-bl"></div>
+      <div class="loader-corner loader-corner-br"></div>
+      <div class="loader-welcome">Bienvenido</div>
+      <div class="loader-name">
+        <span class="loader-name-inner">Leandro Godoy</span>
+      </div>
+      <div class="loader-progress-wrap">
+        <div class="loader-progress-bar">
+          <div class="loader-progress-fill"></div>
+        </div>
+        <div class="loader-progress-text">
+          Cargando<span class="loader-dot">.</span>
+        </div>
+      </div>
+    </div>
+
     <!-- FORMA GEOMÉTRICA 3D ABSTRACTA -->
     <div class="shape-container">
       <div class="shape-wrapper">
         <div class="shape-glow"></div>
         <div class="geometric-shape">
-          <!-- Caras del octaedro -->
           <div class="face"></div>
           <div class="face"></div>
           <div class="face"></div>
@@ -29,16 +47,12 @@
           <div class="face"></div>
           <div class="face"></div>
           <div class="face"></div>
-
-          <!-- Wireframe decorativo -->
           <div class="wireframe">
             <div class="wireframe-line"></div>
             <div class="wireframe-line"></div>
             <div class="wireframe-line"></div>
             <div class="wireframe-line"></div>
           </div>
-
-          <!-- Partículas orbitando -->
           <div class="particle"></div>
           <div class="particle"></div>
           <div class="particle"></div>
@@ -57,6 +71,16 @@
           <li><a href="#work">Work</a></li>
           <li><a href="#services">Services</a></li>
           <li><a href="#contact">Contact</a></li>
+          <li>
+            <!-- BOTÓN DARK MODE -->
+            <button
+              class="dark-toggle"
+              id="darkToggle"
+              aria-label="Modo oscuro"
+            >
+              <span class="dark-toggle-thumb">☀️</span>
+            </button>
+          </li>
         </ul>
       </nav>
     </header>
@@ -79,7 +103,6 @@
         <div class="section-title">Featured Work</div>
         <h2 class="section-heading">Proyectos Seleccionados</h2>
       </div>
-
       <div class="projects-grid">
         <div class="project-card">
           <div class="project-image">
@@ -97,7 +120,6 @@
             </p>
           </div>
         </div>
-
         <div class="project-card">
           <div class="project-image">
             <div class="project-placeholder">🎬</div>
@@ -114,7 +136,6 @@
             </p>
           </div>
         </div>
-
         <div class="project-card">
           <div class="project-image">
             <div class="project-placeholder">📱</div>
@@ -131,7 +152,6 @@
             </p>
           </div>
         </div>
-
         <div class="project-card">
           <div class="project-image">
             <div class="project-placeholder">💼</div>
@@ -157,7 +177,6 @@
         <div class="section-title">What I Do</div>
         <h2 class="section-heading">Servicios</h2>
       </div>
-
       <div class="services-list">
         <div class="service-item">
           <div class="service-number">01</div>
@@ -170,7 +189,6 @@
           </div>
           <div class="service-icon">💻</div>
         </div>
-
         <div class="service-item">
           <div class="service-number">02</div>
           <div class="service-content">
@@ -182,7 +200,6 @@
           </div>
           <div class="service-icon">🎬</div>
         </div>
-
         <div class="service-item">
           <div class="service-number">03</div>
           <div class="service-content">
@@ -207,24 +224,21 @@
             cómo podemos trabajar juntos para hacerla realidad.
           </p>
         </div>
-
         <div class="contact-links">
-          <a href="mailto:leandrogodoy.n@gmail.com" class="contact-link">
+          <a href="mailto:tuemail@gmail.com" class="contact-link">
             <div class="contact-link-icon">📧</div>
             <div class="contact-link-text">
               <div class="contact-link-label">Email</div>
-              <div class="contact-link-value">Leandrogodoy.n@gmail.com</div>
+              <div class="contact-link-value">tuemail@gmail.com</div>
             </div>
           </a>
-
-          <a href="https://wa.me/543329311017" class="contact-link">
+          <a href="https://wa.me/1234567890" class="contact-link">
             <div class="contact-link-icon">💬</div>
             <div class="contact-link-text">
               <div class="contact-link-label">WhatsApp</div>
-              <div class="contact-link-value">+54(3329)311017</div>
+              <div class="contact-link-value">+1 (234) 567-890</div>
             </div>
           </a>
-
           <a href="https://linkedin.com" class="contact-link">
             <div class="contact-link-icon">💼</div>
             <div class="contact-link-text">
