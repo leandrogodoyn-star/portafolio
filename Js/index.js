@@ -1,15 +1,12 @@
 // ==========================================
-// PANTALLA DE CARGA
+// LOADER
 // ==========================================
 const loader = document.getElementById("loader");
-
 document.body.style.overflow = "hidden";
-
-setTimeout(function () {
+setTimeout(() => {
   loader.style.opacity = "0";
   loader.style.transition = "opacity 0.8s ease";
-
-  setTimeout(function () {
+  setTimeout(() => {
     loader.style.display = "none";
     document.body.style.overflow = "";
   }, 800);
@@ -19,92 +16,97 @@ setTimeout(function () {
 // DARK MODE
 // ==========================================
 const darkToggle = document.getElementById("darkToggle");
-const thumb = darkToggle.querySelector(".dark-toggle-thumb");
+const darkToggleMobile = document.getElementById("darkToggleMobile");
 
-// Recuperar preferencia guardada
-if (localStorage.getItem("darkMode") === "true") {
-  document.body.classList.add("dark-mode");
-  thumb.textContent = "🌙";
+function setDark(isDark) {
+  document.body.classList.toggle("dark-mode", isDark);
+  const emoji = isDark ? "🌙" : "☀️";
+  darkToggle.querySelector(".dark-toggle-thumb").textContent = emoji;
+  darkToggleMobile.querySelector(".dark-toggle-thumb").textContent = emoji;
+  localStorage.setItem("darkMode", isDark);
 }
 
-darkToggle.addEventListener("click", () => {
-  document.body.classList.toggle("dark-mode");
-  const isDark = document.body.classList.contains("dark-mode");
-  thumb.textContent = isDark ? "🌙" : "☀️";
-  localStorage.setItem("darkMode", isDark);
+// Recuperar preferencia
+if (localStorage.getItem("darkMode") === "true") setDark(true);
+
+darkToggle.addEventListener("click", () =>
+  setDark(!document.body.classList.contains("dark-mode")),
+);
+darkToggleMobile.addEventListener("click", () =>
+  setDark(!document.body.classList.contains("dark-mode")),
+);
+
+// ==========================================
+// MENÚ HAMBURGUESA
+// ==========================================
+const hamburger = document.getElementById("hamburger");
+const mobileMenu = document.getElementById("mobileMenu");
+
+hamburger.addEventListener("click", () => {
+  const isOpen = hamburger.classList.toggle("open");
+  mobileMenu.classList.toggle("open", isOpen);
+  document.body.style.overflow = isOpen ? "hidden" : "";
+});
+
+// Cerrar al hacer click en un link
+mobileMenu.querySelectorAll("a").forEach((link) => {
+  link.addEventListener("click", () => {
+    hamburger.classList.remove("open");
+    mobileMenu.classList.remove("open");
+    document.body.style.overflow = "";
+  });
 });
 
 // ==========================================
-// EFECTO 3D PARALLAX DE LA FORMA GEOMÉTRICA
+// FORMA 3D + PARALLAX
 // ==========================================
 const shapeWrapper = document.querySelector(".shape-wrapper");
 const shapeContainer = document.querySelector(".shape-container");
-const geometricShape = document.querySelector(".geometric-shape");
-let scrollY = 0;
-let mouseX = 0;
-let mouseY = 0;
+let scrollY = 0,
+  mouseX = 0,
+  mouseY = 0;
 
-// Parallax con scroll
 window.addEventListener("scroll", () => {
   scrollY = window.scrollY;
-  updateShapePosition();
+  updateShape();
 });
-
-// Efecto 3D con movimiento del mouse
 document.addEventListener("mousemove", (e) => {
   mouseX = e.clientX / window.innerWidth - 0.5;
   mouseY = e.clientY / window.innerHeight - 0.5;
-  updateShapePosition();
+  updateShape();
 });
 
-function updateShapePosition() {
-  const parallaxY = scrollY * 0.3;
-
-  const rotateX = mouseY * 40;
-  const rotateY = mouseX * -40;
-  const rotateZ = (mouseX + mouseY) * 20;
-  const translateX = mouseX * 60;
-  const translateY = mouseY * 60;
-
+function updateShape() {
   shapeWrapper.style.transform = `
     translate(-50%, -50%)
-    translateX(${translateX}px)
-    translateY(${translateY}px)
-    rotateX(${rotateX}deg)
-    rotateY(${rotateY}deg)
-    rotateZ(${rotateZ}deg)
+    translateX(${mouseX * 60}px)
+    translateY(${mouseY * 60}px)
+    rotateX(${mouseY * 40}deg)
+    rotateY(${mouseX * -40}deg)
+    rotateZ(${(mouseX + mouseY) * 20}deg)
   `;
-
-  shapeContainer.style.transform = `translateY(${parallaxY}px)`;
+  shapeContainer.style.transform = `translateY(${scrollY * 0.3}px)`;
 }
 
 // ==========================================
-// CURSOR PERSONALIZADO
+// CURSOR
 // ==========================================
 const cursor = document.querySelector(".custom-cursor");
-
 document.addEventListener("mousemove", (e) => {
   cursor.style.left = e.clientX + "px";
   cursor.style.top = e.clientY + "px";
 });
-
-// Efecto hover
-const hoverElements = document.querySelectorAll("a, button, .project-card");
-hoverElements.forEach((el) => {
+document.querySelectorAll("a, button, .project-card").forEach((el) => {
   el.addEventListener("mouseenter", () => cursor.classList.add("hover"));
   el.addEventListener("mouseleave", () => cursor.classList.remove("hover"));
 });
 
 // ==========================================
-// HEADER AL HACER SCROLL
+// HEADER SCROLL
 // ==========================================
 const header = document.querySelector("header");
 window.addEventListener("scroll", () => {
-  if (window.scrollY > 100) {
-    header.classList.add("scrolled");
-  } else {
-    header.classList.remove("scrolled");
-  }
+  header.classList.toggle("scrolled", window.scrollY > 100);
 });
 
 // ==========================================
@@ -114,8 +116,6 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener("click", function (e) {
     e.preventDefault();
     const target = document.querySelector(this.getAttribute("href"));
-    if (target) {
-      target.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
+    if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
   });
 });

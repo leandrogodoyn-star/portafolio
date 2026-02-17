@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="styles/style.css" />
   </head>
   <body>
-    <!-- PANTALLA DE CARGA -->
+    <!-- LOADER -->
     <div class="loader" id="loader">
       <div class="loader-line"></div>
       <div class="loader-corner loader-corner-tl"></div>
@@ -34,7 +34,7 @@
       </div>
     </div>
 
-    <!-- FORMA GEOMÉTRICA 3D ABSTRACTA -->
+    <!-- FORMA 3D -->
     <div class="shape-container">
       <div class="shape-wrapper">
         <div class="shape-glow"></div>
@@ -60,19 +60,37 @@
       </div>
     </div>
 
-    <!-- Cursor personalizado -->
+    <!-- CURSOR -->
     <div class="custom-cursor"></div>
+
+    <!-- MENÚ MÓVIL FULLSCREEN -->
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#work">Work</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+      <div class="mobile-menu-footer">
+        <span>Modo oscuro</span>
+        <button
+          class="dark-toggle"
+          id="darkToggleMobile"
+          aria-label="Modo oscuro"
+        >
+          <span class="dark-toggle-thumb">☀️</span>
+        </button>
+      </div>
+    </div>
 
     <!-- HEADER -->
     <header>
       <nav>
         <div class="logo">Leandro Godoy</div>
+
+        <!-- Nav desktop -->
         <ul class="nav-links">
           <li><a href="#work">Work</a></li>
           <li><a href="#services">Services</a></li>
           <li><a href="#contact">Contact</a></li>
           <li>
-            <!-- BOTÓN DARK MODE -->
             <button
               class="dark-toggle"
               id="darkToggle"
@@ -82,6 +100,13 @@
             </button>
           </li>
         </ul>
+
+        <!-- Hamburguesa (tablet/móvil) -->
+        <button class="hamburger" id="hamburger" aria-label="Menú">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </nav>
     </header>
 
@@ -110,8 +135,8 @@
           </div>
           <div class="project-info">
             <div class="project-tags">
-              <span class="project-tag">Web Design</span>
-              <span class="project-tag">Development</span>
+              <span class="project-tag">Web Design</span
+              ><span class="project-tag">Development</span>
             </div>
             <h3 class="project-title">E-Commerce Platform</h3>
             <p class="project-description">
@@ -126,8 +151,8 @@
           </div>
           <div class="project-info">
             <div class="project-tags">
-              <span class="project-tag">Video</span>
-              <span class="project-tag">Branding</span>
+              <span class="project-tag">Video</span
+              ><span class="project-tag">Branding</span>
             </div>
             <h3 class="project-title">Brand Campaign</h3>
             <p class="project-description">
@@ -142,8 +167,8 @@
           </div>
           <div class="project-info">
             <div class="project-tags">
-              <span class="project-tag">UI/UX</span>
-              <span class="project-tag">Frontend</span>
+              <span class="project-tag">UI/UX</span
+              ><span class="project-tag">Frontend</span>
             </div>
             <h3 class="project-title">Mobile App Design</h3>
             <p class="project-description">
@@ -158,8 +183,8 @@
           </div>
           <div class="project-info">
             <div class="project-tags">
-              <span class="project-tag">Strategy</span>
-              <span class="project-tag">Management</span>
+              <span class="project-tag">Strategy</span
+              ><span class="project-tag">Management</span>
             </div>
             <h3 class="project-title">Digital Strategy</h3>
             <p class="project-description">
@@ -195,7 +220,7 @@
             <h3>Edición de Video</h3>
             <p>
               Producción y edición profesional para redes sociales, publicidad y
-              contenido de marca. Storytelling visual impactante.
+              contenido de marca.
             </p>
           </div>
           <div class="service-icon">🎬</div>
@@ -206,7 +231,7 @@
             <h3>Asistencia Virtual</h3>
             <p>
               Gestión de redes sociales, organización de tareas, soporte
-              administrativo. Optimiza tu tiempo y productividad.
+              administrativo. Optimiza tu tiempo.
             </p>
           </div>
           <div class="service-icon">📋</div>
@@ -221,7 +246,7 @@
           <h2>Let's work<br />together</h2>
           <p>
             ¿Tienes un proyecto en mente? Me encantaría escuchar tu idea y ver
-            cómo podemos trabajar juntos para hacerla realidad.
+            cómo podemos trabajar juntos.
           </p>
         </div>
         <div class="contact-links">
